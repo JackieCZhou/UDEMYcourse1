@@ -1,0 +1,12 @@
+{
+  "name": "UDEMYcourse1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/JackieCZhou/UDEMYcourse1.git",
+  "author": "Jackie Zhou <Jacqueline.colleen88@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1"
+  }
+}
