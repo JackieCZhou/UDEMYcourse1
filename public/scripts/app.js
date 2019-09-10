@@ -1,57 +1,54 @@
 'use strict';
 
-// differences between var, let, const
+// arguments object is no longer bound with arrow function
+// this keyword also no longer bound
 
 
-// can be reassigned and redefined.  "Function scoped" each 
-// variable is specific to the function is was created inside of.
-var nameVar = 'Name';
-var nameVar = 'Colleen';
-console.log('nameVar', nameVar);
+var add = function add(a, b) {
+    console.log(arguments); //prints out all arguments in a function regardless of whats being returned
+    return a + b;
+};
+console.log(add(55, 1));
 
-// "Function scoped" each variable is specific to the function is was created inside of.
-function getPetname() {
-    var petName = 'Molly';
-    return petName;
-}
-
-getPetname();
-console.log(petName); //Wouldn't work.  would get undefined
+// convert to arrow function
+// const add = (a, b) => {
+//     return a + b;
+// };
 
 
-// block scoping samp.  This only works with var because firstName is available in and outside of the function
-var fullName = 'Jackie Zhou';
-if (fullName) {
-    var firstName = fullName.split(' ')[0];
-    console.log(firstName);
-}
+var user = {
+    name: 'Jackie',
+    cities: ['Middletown', 'Naples', 'Charlotte'],
+    printPlacesLived: function printPlacesLived() {
+        var _this = this;
 
-console.log(firstName);
+        console.log(this.name);
+        console.log(this.cities);
 
-// cannot be redefined, can be reassigned though.  Also functino scoped
-var nameLet = 'Jackie';
-nameLet = 'Julie';
-console.log('nameLet', nameLet);
+        var cityMessages = this.cities.map(function (city) {
+            return _this.name + ' has lived in ' + city;
+        });
+        return cityMessages;
+    }
+};
+// forEach vs map
+// this.cities.forEach((city) => {
+//     console.log(this.name + ' has lived in ' + city);
+// })
 
-// cannot be redefined or reassigned. Created with the intent that the value won't change. Also function scoped.
-var nameConst = 'frank';
-console.log('nameConst', nameConst);
 
-function getPetname() {
-    var petName = 'Molly';
-    return petName;
-}
+console.log(user.printPlacesLived());
 
-var petName = getPetname();
-console.log(petName); //This would work because 
-// you are getting the definition of petName from the scope on line 35, not on line 30
+var multiplier = {
+    numbers: [1, 2, 3],
+    multiplyBy: 5,
+    multiply: function multiply() {
+        var _this2 = this;
 
-// block scoped is bound to functions also to block like an if statement
+        return this.numbers.map(function (number) {
+            return number * _this2.multiplyBy;
+        });
+    }
+};
 
-var fullName = 'Jackie Zhou';
-if (fullName) {
-    var _firstName = fullName.split(' ')[0];
-    console.log(_firstName); //this works becuase it is still within the function
-}
-
-console.log(firstName); //this woudln't work becuause firstName is only available in the function
+console.log(multiplier.multiply());

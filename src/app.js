@@ -6,13 +6,13 @@ console.log('App is working');
 
 // JSX  - Javascript XML
 
-var app ={
+const app ={
     title: 'Indecision App',
     subtitle: 'udemy course',
     options: ['one', 'two']
 };
 
-var template = (
+const template = (
     <div>
         <h1>{app.title}</h1>
         <p>{app.subtitle}</p>
@@ -25,7 +25,7 @@ var template = (
 );
 
 // This version is from the in course exercise on rendering options based on info
-// var template = (
+// const template = (
 //     <div>
 //         <h1>{app.title}</h1>
 //         {app.subtitle && <p>{app.subtitle}</p>}
@@ -37,13 +37,13 @@ var template = (
 //     </div>
 // );
 
-// Creating these var's allows for information to be collected/edited dynamically
-var userName = 'Name';
-var userAge = 27;
-var userLocation = 'Austin';
+// Creating these const's allows for information to be collected/edited dynamically
+const userName = 'Name';
+const userAge = 27;
+const userLocation = 'Austin';
 
 // create a user object to dynamically add in user info.
-var user = {
+const user = {
     name: 'Jackie',
     age: 31,
     location: 'NC',
@@ -60,7 +60,7 @@ function getLocation(location) {
 
 }
 
-var templateTwo = (
+const templateTwo = (
     <div>
         <h1>{user.name ? user.name : 'Anonymous'}</h1>
         {(user.age && user.age >=18) && <p>Age: {user.age}</p>}
@@ -69,13 +69,13 @@ var templateTwo = (
 );
 
 // activity from video, create template yourself
-var sampleA = {
+const sampleA = {
     title: 'indecision app',
     project: 1,
     teacher: 'Andrew',
 }
 
-var templateThree = (
+const templateThree = (
     <div>
         <h2>{'What is the project called? ' + sampleA.title}</h2>
         <p>Days working on project: {sampleA.project}</p>
@@ -83,11 +83,11 @@ var templateThree = (
     </div>
 );
 
-var appRoot = document.getElementById('app');
+const appRoot = document.getElementById('app');
 
 
 // The code below was the babel generated conversion used to ensure the app was running on local the server
-// var template = React.createElement("h1", {
+// const template = React.createElement("h1", {
 //     id: "someid"
 //   }, "some text!");
 

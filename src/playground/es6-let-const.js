@@ -49,9 +49,10 @@ console.log(petName); //This would work because
 // block scoped is bound to functions also to block like an if statement
 
 var fullName = 'Jackie Zhou';
+// let firstName; //This is the only way to have let appear in both places.  brings it into both scopes
 if (fullName){
     const firstName = fullName.split(' ')[0];
     console.log(firstName); //this works becuase it is still within the function
 }
 
-console.log(firstName);  //this woudln't work becuause firstName is only available in the function
+console.log(firstName);  //this wouldn't work becuause firstName is only available in the function
